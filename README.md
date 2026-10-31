@@ -3,7 +3,8 @@
 Personal portfolio of **Hana Hmani**, Licence graduate in Software Engineering and Information Systems (GLSI, IIT Sfax, 2026) and engineering student at the International Institute of Technology (IIT).
 
 Static site: plain **HTML, CSS and JavaScript** — no build step, hosted for free on GitHub Pages.
-Bilingual **English / Français** (button in the top bar, choice remembered), light & dark mode, scroll animations.
+Bilingual **English / Français** (button in the top bar, choice remembered), light & dark mode.
+Modern design: floating glass navbar, animated hero (word reveal, rotating roles, circular badge, floating tech logos), technology marquee, bento About section, 3D-tilt project cards, magnetic buttons, custom cursor, scroll reveals — all disabled automatically for visitors who prefer reduced motion.
 
 ## Structure
 
@@ -23,7 +24,7 @@ Edit **`data.js`** only. Examples:
 
 - **Add a certification**: copy a block in `certifications`, fill `name`, `issuer`, `date`, `skills`, put the image in `assets/certs/` and set `image: "assets/certs/my-cert.jpg"`, add `verifyUrl` if any.
 - **Add a GitHub link to a project**: set `github: "https://github.com/hanahmani/<repo>"` (and `demo`, `image`, `role`).
-- Empty fields (`""`) show "to complete" or are hidden — nothing is invented.
+- Empty fields (`""`) are simply not displayed — nothing is invented.
 
 Stats in the About section (projects, technologies, events) are computed from `data.js`.
 
