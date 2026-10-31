@@ -105,107 +105,105 @@
   var currentFilter = 'All';
   function family(x) { if (/net/i.test(x)) return '.NET'; if (x === 'C#') return 'Unity'; if (x === 'React.js') return 'React'; return x; }
 
+  function winBar(label, right) {
+    return el('div', { class: 'win-bar' }, [el('i'), el('i'), el('i'), el('span', { text: label }), right ? el('span', { class: 'right', text: right }) : null]);
+  }
+  function slug(s) { return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
   function renderProjects() {
     var list = projects.filter(function (p) { return currentFilter === 'All' || p.tech.some(function (x) { return family(x) === currentFilter; }); });
     fill('#projectsGrid', list.map(function (p, i) {
       var name = L(p.name), feats = L(p.features) || [];
-      var feat = p.featured && currentFilter === 'All';
-      var card = el('article', { class: 'project pop' + (feat ? ' featured' : '') }, [
-        media(p.image, (p.illustration ? t('a.photoAlt') : t('p.shot')) + name, p.illustration, feat ? el('span', { class: 'badge feat', text: t('p.featured') }) : null),
-        el('div', { class: 'p-body' }, [
-          el('span', { class: 'p-kind', text: L(p.kind) }),
+      var card = el('article', { class: 'win pop' }, [
+        winBar(slug(name) + '/'),
+        el('div', { class: 'win-body' }, [
+          el('span', { class: 'win-meta', text: L(p.kind) }),
           el('h3', { text: name }),
           el('p', { text: L(p.description) }),
-          L(p.objective) ? el('p', { class: 'objective' }, [el('b', { text: t('p.objective') + ' · ' }), L(p.objective)]) : null,
-          L(p.role) ? el('p', { class: 'role' }, [el('b', { text: t('p.role') + ' · ' }), L(p.role)]) : null,
+          L(p.objective) ? el('p', {}, [el('b', { text: t('p.objective') + ' — ' }), L(p.objective)]) : null,
+          L(p.role) ? el('p', {}, [el('b', { text: t('p.role') + ' — ' }), L(p.role)]) : null,
           feats.length ? el('details', {}, [el('summary', { text: t('p.features') + ' (' + feats.length + ')' }), el('ul', {}, feats.map(function (f) { return el('li', { text: f }); }))]) : null,
-          el('div', { class: 'p-foot' }, [
+          el('div', { class: 'win-foot' }, [
             p.tech.length ? chips(p.tech, 'small') : el('span'),
-            p.github ? (function () { var a = el('a', { class: 'p-link', href: p.github, target: '_blank', rel: 'noopener' }, [icon('github'), t('p.repo')]); return a; })() : null,
-            p.demo ? (function () { var a = el('a', { class: 'p-link', href: p.demo, target: '_blank', rel: 'noopener' }, [icon('external'), t('p.demo')]); return a; })() : null
+            p.github ? el('a', { class: 'p-link', href: p.github, target: '_blank', rel: 'noopener' }, [icon('github'), t('p.repo')]) : null,
+            p.demo ? el('a', { class: 'p-link', href: p.demo, target: '_blank', rel: 'noopener' }, [icon('external'), t('p.demo')]) : null
           ])
         ])
       ]);
-      card.style.setProperty('--d', i * 70 + 'ms');
+      card.style.setProperty('--d', i * 60 + 'ms');
       return card;
     }));
   }
 
   function renderFilters() {
-    var techs = ['All'];
-    var count = { All: projects.length };
+    var techs = ['All'], count = { All: projects.length };
     projects.forEach(function (p) {
       var seen = {};
       p.tech.forEach(function (x) { var f = family(x); if (seen[f]) return; seen[f] = 1; count[f] = (count[f] || 0) + 1; if (techs.indexOf(f) < 0) techs.push(f); });
     });
-    techs = techs.filter(function (x) { return x === 'All' || count[x] > 1 || ['Angular', 'Spring Boot', 'React', '.NET', 'Unity', 'Next.js', 'JavaScript'].indexOf(x) >= 0; });
     fill('#filters', techs.map(function (x) {
       var b = el('button', { class: 'filter', type: 'button', 'aria-pressed': x === currentFilter ? 'true' : 'false' }, [x === 'All' ? t('p.all') : x, el('sup', { text: String(count[x]) })]);
       b.addEventListener('click', function () {
         currentFilter = x;
         $('#filters').querySelectorAll('.filter').forEach(function (y) { y.setAttribute('aria-pressed', 'false'); });
         b.setAttribute('aria-pressed', 'true');
-        renderProjects(); bindTilt();
+        renderProjects();
       });
       return b;
     }));
   }
 
+  function rowItem(date, body, status) {
+    return el('li', { class: 'row-item' }, [el('span', { class: 'row-date', text: date || '' }), el('div', {}, body), status || null]);
+  }
+
   function renderContent(instant) {
     // Education
-    var edu = fill('#educationList', (D.education || []).map(function (e) {
+    stagger(fill('#educationList', (D.education || []).map(function (e) {
       var topics = L(e.topics) || [];
-      return el('li', { class: e.done ? 'done' : '' }, [
-        el('span', { class: 'edu-icon' }, [icon(e.icon)]),
-        el('div', { class: 'edu-card' }, [
-          el('div', { class: 'row' }, [el('span', { class: 'when', text: L(e.period) }), el('span', { class: 'chip ' + (e.done ? 'done' : 'live'), text: L(e.status) })]),
-          el('h3', { text: L(e.title) + (L(e.section) ? ' — ' + L(e.section) : '') }),
-          el('p', { text: L(e.school) }),
-          topics.length ? chips(topics) : null
-        ])
-      ]);
-    }));
-    stagger(edu, 140);
-    edu.classList.add('reveal-line');
+      return rowItem(L(e.period), [
+        el('h3', { text: L(e.title) + (L(e.section) ? ' — ' + L(e.section) : '') }),
+        el('p', { text: L(e.school) }),
+        topics.length ? chips(topics, 'small') : null
+      ], el('span', { class: 'status ' + (e.done ? 'ok' : 'live'), text: L(e.status) }));
+    })), 100);
 
     // Skills
     stagger(fill('#skillsGrid', (D.skills || []).map(function (g) {
       var items = L(g.items) || [];
-      return el('div', { class: 'skill-card' }, [
-        el('h3', {}, [L(g.category), el('small', { text: String(items.length).padStart(2, '0') })]),
+      return el('div', { class: 'srow' }, [
+        el('span', { class: 'srow-k' }, [L(g.category), el('small', { text: items.length + (lang === 'fr' ? ' éléments' : ' items') })]),
         g.notTech ? chips(items) : el('div', { class: 'skills' }, items.map(function (n) {
           var name = typeof n === 'string' ? n : L(n.name);
-          return el('div', { class: 'skill' }, [logoImg(name), el('span', { text: name }), n.level ? el('small', { text: L(n.level) }) : null]);
+          return el('span', { class: 'skill' }, [logoImg(name, '20'), name]);
         }))
       ]);
-    })));
+    })), 70);
 
     // Experience
-    var side = el('div', { class: 'exp-side' });
-    var main = [];
+    var nodes = [], others = [];
     (D.experience || []).forEach(function (x) {
       if (x.main) {
-        main.push(el('article', { class: 'exp-main reveal' }, [
-          el('div', {}, [
-            el('div', { class: 'exp-tag' }, [el('b', { text: x.company }), L(x.type) + ' · ' + L(x.period)]),
+        nodes.push(el('article', { class: 'win exp-main reveal' }, [
+          winBar(x.company.toLowerCase() + ' / ' + slug(L(x.type)), L(x.period)),
+          el('div', { class: 'win-body' }, [
             el('h3', { text: L(x.title) }),
             el('p', { text: L(x.description) }),
+            el('ul', { class: 'checks' }, (L(x.features) || []).map(function (f) { return el('li', { text: f }); })),
             chips(x.tech, 'small'),
             x.github ? el('a', { class: 'code-link', href: x.github, target: '_blank', rel: 'noopener' }, [icon('github'), t('exp.code')]) : null
-          ]),
-          el('ol', { class: 'exp-feats' }, (L(x.features) || []).map(function (f) { return el('li', { text: f }); }))
+          ])
         ]));
       } else {
-        side.appendChild(el('article', { class: 'exp-card' }, [
-          el('span', { class: 'meta', text: L(x.period) + ' · ' + x.company }),
-          el('h3', { text: L(x.type) }),
+        others.push(rowItem(L(x.period), [
+          el('h3', { text: x.company + ' — ' + L(x.type) }),
           el('p', { text: L(x.description) }),
           chips(x.tech, 'small')
         ]));
       }
     });
-    stagger(side, 120);
-    fill('#experienceList', main.concat([side]));
+    var ol = stagger(el('ol', { class: 'rows' }, others), 100);
+    fill('#experienceList', nodes.concat([ol]));
 
     // Projects
     renderFilters();
@@ -213,44 +211,32 @@
 
     // Certifications
     stagger(fill('#certsGrid', (D.certifications || []).map(function (c) {
-      var name = L(c.name);
-      return el('article', { class: 'card' }, [
-        media(c.image, t('c.alt') + name, c.illustration),
-        el('div', { class: 'card-body' }, [
-          (L(c.issuer) || L(c.date)) ? el('span', { class: 'meta', text: [L(c.issuer), L(c.date)].filter(Boolean).join(' · ') }) : null,
-          el('h3', { text: name }),
+      return el('li', { class: 'row-item' }, [
+        el('span', { class: 'row-date', text: [L(c.date), L(c.issuer)].filter(Boolean).join(' · ') || 'certificate' }),
+        el('div', {}, [
+          el('h3', { text: L(c.name) }),
           c.skills && L(c.skills).length ? chips(c.skills, 'small') : null,
           c.verifyUrl ? link(c.verifyUrl, t('c.verify')) : null
         ])
       ]);
-    })), 120);
+    })), 100);
 
     // Achievements
     stagger(fill('#achievementsGrid', (D.achievements || []).map(function (a) {
-      return el('article', { class: 'card' }, [
-        a.photos && a.photos.length ? media(a.photos[0], t('a.photoAlt') + L(a.name), a.illustration) : null,
-        el('div', { class: 'card-body' }, [
-          el('span', { class: 'meta', text: [L(a.year), a.organizer].filter(Boolean).join(' · ') }),
-          el('h3', { text: L(a.name) }),
-          el('p', { text: L(a.description) }),
-          L(a.activity) ? el('p', {}, [el('b', { text: t('a.project') + ' · ' }), L(a.activity)]) : null,
-          L(a.result) ? el('p', {}, [el('b', { text: t('a.result') + ' · ' }), L(a.result)]) : null
-        ])
+      return rowItem(L(a.year) || a.organizer, [
+        el('h3', { text: L(a.name) }),
+        el('p', { text: L(a.description) + (L(a.year) ? ' · ' + a.organizer : '') }),
+        L(a.activity) ? el('p', {}, [el('b', { text: t('a.project') + ' — ' }), L(a.activity)]) : null,
+        L(a.result) ? el('p', {}, [el('b', { text: t('a.result') + ' — ' }), L(a.result)]) : null
       ]);
-    })), 120);
+    })), 100);
 
-    // About tiles
-    fill('#associations', [chips(D.associations)]);
-    fill('#interests', (D.interests || []).map(function (i) {
-      return el('li', {}, [el('span', { class: 'interest-icon' }, [icon(i.icon)]), L(i.label)]);
-    }));
+    // Tag rows
+    fill('#associations', (L(D.associations) || []).map(function (x) { return el('li', { class: 'tag', text: x }); }));
+    fill('#interests', (D.interests || []).map(function (i) { return el('li', { class: 'tag' }, [icon(i.icon), L(i.label)]); }));
     var langGroup = (D.skills || []).filter(function (g) { return g.notTech; })[0];
-    fill('#langs', (langGroup ? L(langGroup.items) : []).map(function (x) {
-      var parts = x.split(' — '), native = /native|maternelle/i.test(parts[1] || '');
-      return el('li', {}, [el('span', { class: 'lname', text: parts[0] }), el('span', { class: 'llevel' + (native ? ' full' : ''), text: parts[1] || '' })]);
-    }));
-    fill('#soft', (L(D.softSkills) || []).map(function (x) { return el('li', { text: x }); }));
-    stagger($('.stats-strip'), 110);
+    fill('#langs', (langGroup ? L(langGroup.items) : []).map(function (x) { return el('li', { class: 'tag', text: x.replace(' — ', ' · ') }); }));
+    fill('#soft', (L(D.softSkills) || []).map(function (x) { return el('li', { class: 'tag', text: x }); }));
 
     // Hero highlights (computed from the data)
     fill('#heroFacts', [
@@ -261,7 +247,6 @@
 
     renderRoles();
     watch(instant);
-    bindTilt();
   }
 
   /* ---------- Title under the name ---------- */
@@ -361,22 +346,8 @@
     $('#educationList').classList.add('in');
   }
 
-  /* ---------- Pointer effects (desktop only) ---------- */
-  function bindTilt() {
-    if (!finePointer || reduce) return;
-    document.querySelectorAll('.project:not([data-tilt])').forEach(function (c) {
-      c.setAttribute('data-tilt', '');
-      c.addEventListener('pointermove', function (e) {
-        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-        c.style.transform = 'perspective(900px) rotateX(' + (-y * 5) + 'deg) rotateY(' + (x * 6) + 'deg) translateY(-4px)';
-      });
-      c.addEventListener('pointerleave', function () { c.style.transform = ''; });
-    });
-  }
-  bindTilt();
-
+  /* ---------- Pointer effects (desktop only, home page) ---------- */
   if (finePointer && !reduce) {
-    // Magnetic buttons
     document.querySelectorAll('.magnetic').forEach(function (b) {
       b.addEventListener('pointermove', function (e) {
         var r = b.getBoundingClientRect();
@@ -384,16 +355,6 @@
       });
       b.addEventListener('pointerleave', function () { b.style.transform = ''; });
     });
-    // Soft follower cursor
-    var cur = $('#cursor'), cx = 0, cy = 0, tx = 0, ty = 0;
-    addEventListener('pointermove', function (e) {
-      tx = e.clientX; ty = e.clientY; cur.classList.add('on');
-      var hot = e.target.closest && e.target.closest('a, button, summary, .project, input, textarea');
-      cur.classList.toggle('hover', !!hot);
-    }, { passive: true });
-    document.addEventListener('pointerleave', function () { cur.classList.remove('on'); });
-    (function loop() { cx += (tx - cx) * .18; cy += (ty - cy) * .18; cur.style.transform = 'translate(' + cx + 'px,' + cy + 'px)'; requestAnimationFrame(loop); })();
-    // Hero parallax
     var vis = $('.hero-visual'), hero = $('#home');
     hero.addEventListener('pointermove', function (e) {
       var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
