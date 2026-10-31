@@ -156,7 +156,8 @@
     }));
     stagger(edu);
 
-    // Complementary training
+    // Complementary training (column hidden when the list is empty)
+    $('.edu-grid').classList.toggle('single', !(D.trainings || []).length);
     stagger(fill('#trainingList', (D.trainings || []).map(function (tr) {
       return el('article', { class: 'card training' }, [
         el('div', { class: 'training-head' }, [el('span', { class: 'edu-icon' }, [iconSvg(tr.icon)]), el('h3', { text: L(tr.title) })]),

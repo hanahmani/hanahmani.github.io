@@ -395,3 +395,5 @@ a.on-dark:hover { color: #FFFFFF; }
 @media (max-width: 900px) { .edu-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
 @media (max-width: 560px) { .edu-card { flex-direction: column; gap: 12px; padding: 18px; } .timeline li { padding-left: 26px; } }
 @media (max-width: 900px) { .hero-deco span:nth-child(3) { display: none; } }
+.edu-grid.single { grid-template-columns: minmax(0, 1fr); max-width: 860px; }
+.edu-grid.single > div:last-child { display: none; }

@@ -40,16 +40,7 @@ window.PORTFOLIO = {
   ],
 
   // Complementary training. Unknown fields stay "" → shown as "to complete".
-  trainings: [
-    {
-      icon: "rocket",
-      title: { en: "Entrepreneurship training", fr: "Formation en entrepreneuriat" },
-      issuer: "",
-      date: "",
-      description: "",
-      skills: { en: ["Entrepreneurship"], fr: ["Entrepreneuriat"] }
-    }
-  ],
+  trainings: [],
 
   // Skills: no proficiency levels on purpose. Logos come from assets/logos (see LOGOS in script.js).
   // To show a level, write an item as { name: "Java", level: "…" }.
@@ -172,6 +163,14 @@ window.PORTFOLIO = {
 
   // Add each certificate here. Never fill a field you can't confirm.
   certifications: [
+    {
+      name: { en: "Entrepreneurship training certificate", fr: "Certificat de formation en entrepreneuriat" },
+      issuer: "",
+      date: "",
+      skills: { en: ["Entrepreneurship"], fr: ["Entrepreneuriat"] },
+      image: "assets/illustrations/certificate.svg", illustration: true,   // replace with the real certificate image
+      verifyUrl: ""
+    },
     {
       name: { en: "Interpersonal skills training certificate (Soft Skills)", fr: "Certificat de formation en compétences interpersonnelles (Soft Skills)" },
       issuer: "",
