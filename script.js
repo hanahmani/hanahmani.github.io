@@ -242,11 +242,15 @@
     // About tiles
     fill('#associations', [chips(D.associations)]);
     fill('#interests', (D.interests || []).map(function (i) {
-      return el('span', { class: 'interest' }, [el('span', { class: 'interest-icon' }, [icon(i.icon)]), L(i.label)]);
+      return el('li', {}, [el('span', { class: 'interest-icon' }, [icon(i.icon)]), L(i.label)]);
     }));
     var langGroup = (D.skills || []).filter(function (g) { return g.notTech; })[0];
-    fill('#langs', langGroup ? [chips(langGroup.items)] : []);
-    fill('#soft', [chips(D.softSkills)]);
+    fill('#langs', (langGroup ? L(langGroup.items) : []).map(function (x) {
+      var parts = x.split(' — '), native = /native|maternelle/i.test(parts[1] || '');
+      return el('li', {}, [el('span', { class: 'lname', text: parts[0] }), el('span', { class: 'llevel' + (native ? ' full' : ''), text: parts[1] || '' })]);
+    }));
+    fill('#soft', (L(D.softSkills) || []).map(function (x) { return el('li', { text: x }); }));
+    stagger($('.stats-strip'), 110);
 
     // Hero highlights (computed from the data)
     fill('#heroFacts', [

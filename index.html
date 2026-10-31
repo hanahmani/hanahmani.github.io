@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=12">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Hana Hmani","url":"https://hanahmani.github.io/","image":"https://hanahmani.github.io/assets/hana-hmani.jpg","email":"mailto:hanahmani3@gmail.com","jobTitle":"Engineering Student | Full Stack Developer","alumniOf":[{"@type":"CollegeOrUniversity","name":"International Institute of Technology (IIT), Sfax"}],"sameAs":["https://github.com/hanahmani","https://www.linkedin.com/in/hana-hmani-996b41337/"]}
   </script>
@@ -103,30 +103,44 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-  <div class="wrap">
-    <header class="sec-head reveal"><span class="sec-num">01</span><p class="eyebrow" data-i18n="nav.about">About</p>
-      <h2 class="display h2" data-i18n="about.title">From software engineering to engineering school</h2></header>
-    <div class="bento">
-      <article class="tile tile-text reveal">
-        <p data-i18n="about.p1"></p>
-        <p data-i18n="about.p2"></p>
-        <p class="quote" data-i18n="about.p3"></p>
-      </article>
-      <div class="tile tile-stat reveal"><strong class="display">GLSI</strong><span data-i18n="stat.degree">Licence, 2026</span></div>
-      <div class="tile tile-stat reveal"><strong class="display" id="statProjects">0</strong><span data-i18n="stat.projects">Projects</span></div>
-      <div class="tile tile-stat reveal"><strong class="display" id="statTech">0</strong><span data-i18n="stat.tech">Technologies</span></div>
-      <div class="tile tile-stat dark reveal"><strong class="display" id="statEvents">0</strong><span data-i18n="stat.events">Tech events</span></div>
-      <article class="tile tile-interests reveal">
-        <h3 class="tile-h" data-i18n="about.interests">Interests</h3>
-        <div class="interests" id="interests"></div>
-      </article>
-      <article class="tile tile-langs reveal">
-        <h3 class="tile-h" data-i18n="about.langs">Languages</h3>
-        <div id="langs"></div>
-        <h3 class="tile-h" data-i18n="about.soft">Soft skills</h3>
-        <div id="soft"></div>
-      </article>
+<section id="about" class="section about-sec">
+  <div class="wrap about2">
+    <aside class="about-side reveal">
+      <span class="sec-num">01</span>
+      <p class="eyebrow" data-i18n="nav.about">About</p>
+      <h2 class="display h2" data-i18n="about.title">From software engineering to engineering school</h2>
+      <figure class="about-quote">
+        <span class="qmark display" aria-hidden="true">&ldquo;</span>
+        <blockquote class="display" data-i18n="about.p3"></blockquote>
+        <figcaption><span class="sign display">Hana Hmani</span><span data-i18n="hero.title"></span></figcaption>
+      </figure>
+    </aside>
+
+    <div class="about-main">
+      <p class="about-lead reveal" data-i18n="about.p1"></p>
+      <p class="about-text reveal" data-i18n="about.p2"></p>
+
+      <div class="stats-strip reveal">
+        <div class="st"><strong class="display">GLSI</strong><span data-i18n="stat.degree">Licence, 2026</span></div>
+        <div class="st"><strong class="display" id="statProjects">0</strong><span data-i18n="stat.projects">Projects</span></div>
+        <div class="st"><strong class="display" id="statTech">0</strong><span data-i18n="stat.tech">Technologies</span></div>
+        <div class="st"><strong class="display" id="statEvents">0</strong><span data-i18n="stat.events">Tech events</span></div>
+      </div>
+
+      <div class="about-cards">
+        <article class="acard reveal">
+          <h3 class="tile-h" data-i18n="about.interests">Interests</h3>
+          <ul class="ilist" id="interests"></ul>
+        </article>
+        <article class="acard reveal">
+          <h3 class="tile-h" data-i18n="about.langs">Languages</h3>
+          <ul class="llist" id="langs"></ul>
+        </article>
+        <article class="acard dark reveal">
+          <h3 class="tile-h" data-i18n="about.soft">Soft skills</h3>
+          <ul class="slist" id="soft"></ul>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -253,8 +267,8 @@
 </a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
-<script src="i18n.js?v=10" defer></script>
-<script src="data.js?v=10" defer></script>
-<script src="script.js?v=10" defer></script>
+<script src="i18n.js?v=12" defer></script>
+<script src="data.js?v=12" defer></script>
+<script src="script.js?v=12" defer></script>
 </body>
 </html>
