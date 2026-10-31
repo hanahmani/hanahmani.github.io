@@ -330,3 +330,41 @@ a.on-dark:hover { color: #FFFFFF; }
 .hero, .contact, .form { overflow: clip; }
 .icon-btn.burger { display: none; }
 @media (max-width: 1080px) { .icon-btn.burger { display: inline-flex; } }
+
+/* ---------- About (no photo) ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+.about .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0; }
+.about .stat { padding: 22px; border: 1px solid var(--line); }
+.about .stat strong { font-size: 40px; color: var(--acc); }
+.interests { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.interest > span:last-child { min-width: 0; hyphens: auto; }
+.interest { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); font-size: 14px; font-weight: 500; transition: transform .25s, border-color .25s; }
+.interest:hover { transform: translateY(-3px); border-color: var(--acc); }
+.interest-icon { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 10px; background: var(--bg2); color: var(--acc); display: grid; place-items: center; }
+.interest-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Skills with logos ---------- */
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
+.skill { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg2); border: 1px solid transparent; font-size: 13.5px; font-weight: 500; transition: transform .2s, border-color .2s, background .2s; }
+.skill:hover { transform: translateY(-2px); border-color: var(--acc); background: var(--card); }
+.skill img { width: 24px; height: 24px; flex: 0 0 auto; transition: transform .3s; }
+.skill:hover img { transform: scale(1.15) rotate(-6deg); }
+.skill small { margin-left: auto; color: var(--mute); font-size: 11px; }
+.skill .dot { width: 10px; height: 10px; margin: 0 7px; border-radius: 50%; background: var(--acc); flex: 0 0 auto; }
+:root[data-theme="dark"] .skill img.mono { filter: invert(1); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .skill img.mono { filter: invert(1); } }
+
+/* ---------- Images, badges, project details ---------- */
+.media { position: relative; height: 180px; }
+.badge { position: absolute; top: 10px; right: 10px; padding: 3px 9px; border-radius: 999px; background: rgba(250, 249, 246, .92); color: #40352E; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.card .objective { color: var(--ink); }
+.card .objective b { color: var(--acc); font-weight: 600; }
+.card details { font-size: 14px; color: var(--mute); }
+.card summary { cursor: pointer; color: var(--acc); font-weight: 600; min-height: 32px; display: flex; align-items: center; list-style: none; }
+.card summary::-webkit-details-marker { display: none; }
+.card summary::before { content: "+"; display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 8px; border-radius: 6px; background: var(--bg2); transition: transform .3s; }
+.card details[open] summary::before { content: "–"; }
+.card details ul { margin-top: 6px; animation: rise .3s ease both; }
+.ach .media { margin-top: -24px; border-radius: 0; }
+
+@media (max-width: 900px) { .about { grid-template-columns: minmax(0, 1fr); gap: 40px; } }

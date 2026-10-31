@@ -27,13 +27,14 @@ window.PORTFOLIO = {
     }
   ],
 
-  // Skills: no proficiency levels on purpose.
+  // Skills: no proficiency levels on purpose. Logos come from assets/logos (see LOGOS in script.js).
+  // To show a level, write an item as { name: "Java", level: "…" }.
   skills: [
     { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Angular"] },
     { category: "Backend", items: ["Java", "Spring Boot", "C#", "ASP.NET Core", ".NET", "REST API"] },
     { category: { en: "Databases", fr: "Bases de données" }, items: ["MySQL", "SQL Server", "PL/SQL"] },
     { category: { en: "DevOps & Tools", fr: "DevOps & outils" }, items: ["Git", "GitHub", "Docker", "GitHub Actions", "Swagger / OpenAPI", "Postman"] },
-    { category: { en: "Other technologies", fr: "Autres technologies" }, items: ["Python", "C", "Unity", "Agile / Scrum", "Linux (Ubuntu)"] },
+    { category: { en: "Other technologies", fr: "Autres technologies" }, items: ["Python", "C", "Unity", "C#", "Agile / Scrum", "Linux (Ubuntu)"] },
     { category: { en: "Languages", fr: "Langues" }, notTech: true,
       items: { en: ["Arabic — native", "French — intermediate", "English — intermediate"], fr: ["Arabe — langue maternelle", "Français — intermédiaire", "Anglais — intermédiaire"] } }
   ],
@@ -77,58 +78,71 @@ window.PORTFOLIO = {
     }
   ],
 
-  // github: "" → shows "link to confirm". demo: "" → hidden. image: "" → placeholder.
+  // github: "" → "link to confirm". demo: "" → hidden. role: "" → "to confirm".
+  // image: a real screenshot path; set illustration: false once you replace the illustration with a real screenshot.
   projects: [
     {
       name: { en: "E-learning Platform", fr: "Plateforme e-learning" },
       kind: { en: "Internship / academic project", fr: "Projet de stage / académique" },
+      objective: { en: "Offer complete online training with dedicated spaces for clients, trainers and administrators, from course follow-up to certification and payment.", fr: "Proposer une formation en ligne complète avec des espaces dédiés aux clients, formateurs et administrateurs, du suivi des cours à la certification et au paiement." },
       description: { en: "Online training platform with three user types: client, trainer and administrator.", fr: "Plateforme de formation en ligne avec trois types d'utilisateurs : client, formateur et administrateur." },
       features: {
         en: ["Course management", "User management", "Training progress tracking", "Certificates generated at an 80% pass mark", "Payments with a 70/30 split"],
         fr: ["Gestion des formations", "Gestion des utilisateurs", "Suivi des formations", "Génération de certificats avec un seuil de réussite de 80 %", "Gestion des paiements avec une répartition 70/30"]
       },
       tech: ["Angular", "ASP.NET Core", "SQL Server"],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/elearning.svg", illustration: true
     },
     {
       name: { en: "Shared Terminal Reservation", fr: "Réservation de terminaux partagés" },
       kind: { en: "Academic project", fr: "Projet académique" },
+      objective: { en: "Organise access to shared terminals through a clear reservation system.", fr: "Organiser l'accès aux terminaux partagés grâce à un système de réservation clair." },
       description: { en: "Application to book and manage shared terminals, focused on reservation handling and resource organisation.", fr: "Application de réservation et de gestion des terminaux partagés, centrée sur la gestion des réservations et l'organisation des ressources." },
       features: { en: ["Reservation management", "Resource organisation"], fr: ["Gestion des réservations", "Organisation des ressources"] },
       tech: [".NET"],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/reservation.svg", illustration: true
     },
     {
       name: { en: "Interactive Orrery", fr: "Orrery interactif" },
       kind: "NASA Space Apps Challenge 2024",
+      objective: { en: "Explore and visualise the solar system interactively.", fr: "Explorer et visualiser le système solaire de manière interactive." },
       description: { en: "Interactive orrery to explore and visualise the solar system, built during the NASA Space Apps Challenge 2024.", fr: "Orrery interactif pour explorer et visualiser le système solaire, réalisé lors du NASA Space Apps Challenge 2024." },
       features: [],
       tech: [],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/orrery.svg", illustration: true
     },
     {
       name: { en: "Unity Game", fr: "Jeu Unity" },
       kind: { en: "Academic project · Dec 2024", fr: "Projet académique · déc. 2024" },
+      objective: { en: "Practise game programming: game logic and interactive features with Unity and C#.", fr: "Mettre en pratique la programmation de jeux : logique de jeu et fonctionnalités interactives avec Unity et C#." },
       description: { en: "Video game developed with Unity and C#: game logic and interactive features.", fr: "Jeu vidéo développé avec Unity et C# : logique de jeu et fonctionnalités interactives." },
       features: [],
       tech: ["Unity", "C#"],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/game.svg", illustration: true
     },
     {
       name: { en: "E-commerce Website", fr: "Site e-commerce" },
       kind: { en: "Academic project · May 2024", fr: "Projet académique · mai 2024" },
+      objective: { en: "Build an online store interface that presents products clearly.", fr: "Créer l'interface d'une boutique en ligne qui présente clairement les produits." },
       description: { en: "Online store with a user interface and product presentation.", fr: "Site de vente en ligne avec interface utilisateur et présentation des produits." },
       features: [],
       tech: ["HTML", "CSS", "JavaScript"],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/ecommerce.svg", illustration: true
     },
     {
       name: { en: "Agile Management Application", fr: "Application de gestion Agile" },
       kind: { en: "Academic project · May 2024", fr: "Projet académique · mai 2024" },
+      objective: { en: "Manage a project following the Agile approach.", fr: "Gérer un projet selon l'approche Agile." },
       description: { en: "Project management application following an Agile approach.", fr: "Application de gestion de projet suivant une approche Agile." },
       features: [],
       tech: ["Spring Boot"],
-      role: "", github: "", demo: "", image: ""
+      role: "", github: "", demo: "",
+      image: "assets/illustrations/agile.svg", illustration: true
     }
   ],
 
@@ -139,7 +153,7 @@ window.PORTFOLIO = {
       issuer: "",
       date: "",
       skills: ["Soft skills"],
-      image: "",          // e.g. "assets/certs/soft-skills.jpg"
+      image: "assets/illustrations/certificate.svg", illustration: true,   // replace with "assets/certs/soft-skills.jpg"
       verifyUrl: ""
     }
   ],
@@ -152,7 +166,7 @@ window.PORTFOLIO = {
       description: { en: "Participant.", fr: "Participante." },
       activity: { en: "Interactive Orrery to explore and visualise the solar system.", fr: "Orrery interactif pour explorer et visualiser le système solaire." },
       result: "",
-      photos: []
+      photos: ["assets/illustrations/event-nasa.svg"], illustration: true
     },
     {
       name: "MTC – ISET Sfax",
@@ -161,7 +175,7 @@ window.PORTFOLIO = {
       description: { en: "Participant.", fr: "Participante." },
       activity: "",
       result: "",
-      photos: []
+      photos: ["assets/illustrations/event-mtc.svg"], illustration: true
     },
     {
       name: "IEEEXtreme",
@@ -170,7 +184,7 @@ window.PORTFOLIO = {
       description: { en: "Participant in the IEEEXtreme programming competition.", fr: "Participation à la compétition de programmation IEEEXtreme." },
       activity: "",
       result: "",
-      photos: []
+      photos: ["assets/illustrations/event-ieee.svg"], illustration: true
     }
   ],
 
@@ -179,10 +193,13 @@ window.PORTFOLIO = {
     fr: ["IEEE IIT Student Branch — Membre, 2023–2025", "Club Google IIT ISB — Membre, 2023–2025"]
   },
 
-  interests: {
-    en: ["Software Development", "New Technologies", "Innovation", "Problem Solving", "Horse riding"],
-    fr: ["Développement logiciel", "Nouvelles technologies", "Innovation", "Résolution de problèmes", "Équitation"]
-  },
+  interests: [
+    { icon: "code", label: { en: "Software Development", fr: "Développement logiciel" } },
+    { icon: "cpu", label: { en: "New Technologies", fr: "Nouvelles technologies" } },
+    { icon: "bulb", label: { en: "Innovation", fr: "Innovation" } },
+    { icon: "puzzle", label: { en: "Problem Solving", fr: "Résolution de problèmes" } },
+    { icon: "horse", label: { en: "Horse riding", fr: "Équitation" } }
+  ],
 
   linkedin: "https://www.linkedin.com/in/hana-hmani-996b41337/",
   email: "hanahmani3@gmail.com"

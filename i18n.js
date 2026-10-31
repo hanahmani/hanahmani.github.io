@@ -8,15 +8,16 @@ window.I18N = {
     "nav.achievements": "Achievements", "nav.contact": "Contact",
     "nav.cv": "Download CV", "aria.theme": "Toggle dark mode", "aria.menuOpen": "Open menu", "aria.menuClose": "Close menu",
     "aria.lang": "Passer le site en français", "lang.other": "FR",
-    "hero.eyebrow": "Portfolio · Sfax, Tunisia",
+    "hero.eyebrow": "Hi, I'm",
     "hero.sub": "Engineering Student | Full Stack Developer",
-    "hero.lead": "Licence graduate in Software Engineering and Information Systems, currently pursuing my Engineering Degree at the International Institute of Technology (IIT). Passionate about software development, innovative technologies and building impactful digital solutions.",
+    "hero.lead": "Licence graduate in Software Engineering and Information Systems, currently pursuing my Engineering Degree at the International Institute of Technology (IIT). Passionate about software development, innovative technologies and building impactful digital solutions. I enjoy transforming ideas into useful, scalable and user-friendly applications.",
     "hero.explore": "Explore My Work", "hero.cv": "Download My CV", "hero.contact": "Contact Me",
     "hero.alt": "Portrait of Hana Hmani",
     "about.eyebrow": "About me",
     "about.title": "From software engineering to engineering school",
-    "about.p1": "I'm Hana Hmani, a graduate in Software Engineering and Information Systems (GLSI) from the International Institute of Technology (IIT), where I am now pursuing my engineering degree. I'm particularly interested in full stack development, web application design and innovative software solutions.",
-    "about.p2": "During my studies I worked on academic and practical projects, took part in hackathons and built applications with modern technologies. I'm driven by continuous learning, teamwork and creating solutions that meet real needs.",
+    "about.p1": "I'm Hana Hmani, a graduate in Software Engineering and Information Systems from the International Institute of Technology (IIT), where I am now pursuing my engineering degree. Passionate about software development and new technologies, I am particularly interested in full stack development, web application design and innovative IT solutions.",
+    "about.p2": "Throughout my university studies, I have had the opportunity to work on various academic and practical projects, take part in hackathons and develop applications using several modern technologies.",
+    "about.p3": "I am motivated by continuous learning, teamwork and creating solutions that meet real needs.",
     "stat.degree": "Licence, 2026", "stat.projects": "Projects shown", "stat.tech": "Technologies listed", "stat.events": "Tech events",
     "about.interests": "Interests",
     "sec.education": "Education", "sec.skills": "Technical skills", "sec.experience": "Professional experience",
@@ -38,7 +39,7 @@ window.I18N = {
     "p.repoTodo": "GitHub link to confirm", "p.demo": "Live demo", "p.role": "My role: ", "p.techTodo": "Technologies to confirm",
     "c.img": "Certificate image to add", "c.alt": "Certificate: ", "c.issuer": "Issuer: to complete", "c.date": "Date: to complete",
     "c.verify": "Verify certificate", "c.more": "More certifications coming soon.",
-    "a.year": "Year to confirm", "a.project": "Project: ", "a.result": "Result: "
+    "a.year": "Year to confirm", "illus": "Illustration", "p.objective": "Objective", "p.features": "Key features", "p.roleTodo": "My role: to confirm", "a.photoAlt": "Illustration for ", "a.project": "Project: ", "a.result": "Result: "
   },
   fr: {
     "meta.title": "Hana Hmani — Élève ingénieure | Développeuse Full Stack",
@@ -48,15 +49,16 @@ window.I18N = {
     "nav.achievements": "Événements", "nav.contact": "Contact",
     "nav.cv": "Télécharger le CV", "aria.theme": "Changer de thème", "aria.menuOpen": "Ouvrir le menu", "aria.menuClose": "Fermer le menu",
     "aria.lang": "Switch the site to English", "lang.other": "EN",
-    "hero.eyebrow": "Portfolio · Sfax, Tunisie",
+    "hero.eyebrow": "Bonjour, je suis",
     "hero.sub": "Élève ingénieure | Développeuse Full Stack",
-    "hero.lead": "Diplômée d'une licence en Génie Logiciel et Systèmes d'Information, je poursuis actuellement mon cycle ingénieur à l'Institut International de Technologie (IIT). Passionnée par le développement logiciel, les technologies innovantes et la création de solutions numériques utiles.",
+    "hero.lead": "Diplômée d'une licence en Génie Logiciel et Systèmes d'Information, je poursuis actuellement mon cycle ingénieur à l'Institut International de Technologie (IIT). Passionnée par le développement logiciel, les technologies innovantes et la création de solutions numériques utiles. J'aime transformer des idées en applications utiles, évolutives et faciles à utiliser.",
     "hero.explore": "Voir mes projets", "hero.cv": "Télécharger mon CV", "hero.contact": "Me contacter",
     "hero.alt": "Portrait de Hana Hmani",
     "about.eyebrow": "À propos",
     "about.title": "Du génie logiciel au cycle ingénieur",
-    "about.p1": "Je suis Hana Hmani, diplômée en Génie Logiciel et Systèmes d'Information (GLSI) de l'Institut International de Technologie (IIT), où je poursuis aujourd'hui mon cycle ingénieur. Je m'intéresse particulièrement au développement Full Stack, à la conception d'applications web et aux solutions informatiques innovantes.",
-    "about.p2": "Au cours de mon parcours universitaire, j'ai travaillé sur différents projets académiques et pratiques, participé à des hackathons et développé des applications avec des technologies modernes. Je suis motivée par l'apprentissage continu, le travail en équipe et la création de solutions qui répondent à de vrais besoins.",
+    "about.p1": "Je suis Hana Hmani, diplômée en Génie Logiciel et Systèmes d'Information de l'Institut International de Technologie (IIT), où je poursuis aujourd'hui mon cycle ingénieur. Passionnée par le développement logiciel et les nouvelles technologies, je m'intéresse particulièrement au développement Full Stack, à la conception d'applications web et aux solutions informatiques innovantes.",
+    "about.p2": "Au cours de mon parcours universitaire, j'ai eu l'occasion de travailler sur différents projets académiques et pratiques, de participer à des hackathons et de développer des applications utilisant plusieurs technologies modernes.",
+    "about.p3": "Je suis motivée par l'apprentissage continu, le travail en équipe et la création de solutions qui répondent à de vrais besoins.",
     "stat.degree": "Licence, 2026", "stat.projects": "Projets présentés", "stat.tech": "Technologies", "stat.events": "Événements tech",
     "about.interests": "Centres d'intérêt",
     "sec.education": "Formation", "sec.skills": "Compétences techniques", "sec.experience": "Expérience professionnelle",
@@ -78,6 +80,6 @@ window.I18N = {
     "p.repoTodo": "Lien GitHub à confirmer", "p.demo": "Démo en ligne", "p.role": "Mon rôle : ", "p.techTodo": "Technologies à confirmer",
     "c.img": "Image du certificat à ajouter", "c.alt": "Certificat : ", "c.issuer": "Organisme : à compléter", "c.date": "Date : à compléter",
     "c.verify": "Vérifier le certificat", "c.more": "D'autres certifications arrivent bientôt.",
-    "a.year": "Année à confirmer", "a.project": "Projet : ", "a.result": "Résultat : "
+    "a.year": "Année à confirmer", "illus": "Illustration", "p.objective": "Objectif", "p.features": "Fonctionnalités principales", "p.roleTodo": "Mon rôle : à confirmer", "a.photoAlt": "Illustration pour ", "a.project": "Projet : ", "a.result": "Résultat : "
   }
 };

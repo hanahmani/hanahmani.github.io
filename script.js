@@ -29,6 +29,47 @@
     return el('div', { class: 'chips' }, (L(list) || []).map(function (x) { return el('span', { class: 'chip ' + (cls || ''), text: x }); }));
   }
   function todo(text) { return el('span', { class: 'todo', text: text }); }
+
+  /* Official technology logos (assets/logos, from Devicon, MIT). Missing → small dot. */
+  var LOGOS = {
+    'HTML': 'html5', 'CSS': 'css3', 'JavaScript': 'javascript', 'TypeScript': 'typescript', 'React.js': 'react', 'React': 'react',
+    'Angular': 'angular', 'Java': 'java', 'Spring Boot': 'spring', 'C#': 'csharp', 'ASP.NET Core': 'dotnetcore', '.NET': 'dotnetcore',
+    '.NET Core': 'dotnetcore', 'MySQL': 'mysql', 'SQL Server': 'microsoftsqlserver', 'PL/SQL': 'oracle', 'Git': 'git', 'GitHub': 'github',
+    'Docker': 'docker', 'GitHub Actions': 'githubactions', 'Swagger / OpenAPI': 'swagger', 'Postman': 'postman', 'Python': 'python',
+    'C': 'c', 'Unity': 'unity', 'Linux (Ubuntu)': 'ubuntu', 'Agile / Scrum': 'jira'
+  };
+  var MONO = { github: 1, unity: 1 }; // black logos → inverted in dark mode
+  function skillChips(items) {
+    return el('div', { class: 'skills' }, (L(items) || []).map(function (it) {
+      var name = typeof it === 'string' ? it : L(it.name);
+      var key = LOGOS[name];
+      var icon = key ? el('img', { src: 'assets/logos/' + key + '.svg', alt: '', width: '28', height: '28', loading: 'lazy', class: MONO[key] ? 'mono' : '' })
+                     : el('span', { class: 'dot', 'aria-hidden': 'true' });
+      if (key) icon.addEventListener('error', function () { icon.replaceWith(el('span', { class: 'dot', 'aria-hidden': 'true' })); });
+      return el('div', { class: 'skill' }, [icon, el('span', { text: name }), it.level ? el('small', { text: L(it.level) }) : null]);
+    }));
+  }
+  function media(src, alt, isIllus, emptyText) {
+    var box = el('div', { class: 'media' });
+    if (src) {
+      box.appendChild(el('img', { src: src, alt: alt, loading: 'lazy' }));
+      if (isIllus) box.appendChild(el('span', { class: 'badge', text: t('illus') }));
+    } else box.textContent = emptyText;
+    return box;
+  }
+  var ICONS = {
+    code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    cpu: '<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
+    bulb: '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/>',
+    puzzle: '<path d="M19.4 14.4a2.5 2.5 0 1 0 0-4.8V6a1 1 0 0 0-1-1h-3.6a2.5 2.5 0 1 0-4.8 0H6a1 1 0 0 0-1 1v3.6a2.5 2.5 0 1 1 0 4.8V18a1 1 0 0 0 1 1h3.6a2.5 2.5 0 1 1 4.8 0H18a1 1 0 0 0 1-1Z"/>',
+    horse: '<path d="M6 21l2-6c-2-1-3-3-3-5l4-6 2 2 3-3 1 4c2 1 4 3 4 6v8"/><path d="M14 9l-3 2"/><circle cx="10.5" cy="7.5" r=".6" fill="currentColor"/>'
+  };
+  function iconSvg(name) {
+    var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true');
+    s.innerHTML = ICONS[name] || ICONS.code;
+    return s;
+  }
   function link(href, text) {
     var a = el('a', { href: href, text: text });
     if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
@@ -58,16 +99,14 @@
     var list = projects.filter(function (p) { return currentFilter === 'All' || p.tech.some(function (x) { return family(x) === currentFilter; }); });
     var grid = fill('#projectsGrid', list.map(function (p, i) {
       var name = L(p.name), feats = L(p.features) || [];
-      var media = el('div', { class: 'media' });
-      if (p.image) media.appendChild(el('img', { src: p.image, alt: t('p.shotAlt') + name, loading: 'lazy' }));
-      else media.textContent = t('p.shot');
       var card = el('article', { class: 'card pop' }, [
-        media,
+        media(p.image, (p.illustration ? t('a.photoAlt') : t('p.shotAlt')) + name, p.illustration, t('p.shot')),
         el('span', { class: 'meta', text: L(p.kind) }),
         el('h3', { text: name }),
         el('p', { text: L(p.description) }),
-        feats.length ? el('ul', {}, feats.map(function (f) { return el('li', { text: f }); })) : null,
-        L(p.role) ? el('p', { text: t('p.role') + L(p.role) }) : null,
+        L(p.objective) ? el('p', { class: 'objective' }, [el('b', { text: t('p.objective') + ' · ' }), document.createTextNode(L(p.objective))]) : null,
+        feats.length ? el('details', {}, [el('summary', { text: t('p.features') + ' (' + feats.length + ')' }), el('ul', {}, feats.map(function (f) { return el('li', { text: f }); }))]) : null,
+        L(p.role) ? el('p', { text: t('p.role') + L(p.role) }) : todo(t('p.roleTodo')),
         p.tech.length ? chips(p.tech, 'small') : todo(t('p.techTodo')),
         el('div', { class: 'links' }, [
           p.github ? link(p.github, t('p.repo')) : todo(t('p.repoTodo')),
@@ -110,7 +149,7 @@
 
     // Skills
     stagger(fill('#skillsGrid', (D.skills || []).map(function (g) {
-      return el('div', { class: 'card skill-card' }, [el('h3', { text: L(g.category) }), chips(g.items)]);
+      return el('div', { class: 'card skill-card' }, [el('h3', { text: L(g.category) }), g.notTech ? chips(g.items) : skillChips(g.items)]);
     })));
 
     // Experience
@@ -144,11 +183,8 @@
     // Certifications
     var certs = (D.certifications || []).map(function (c) {
       var name = L(c.name);
-      var media = el('div', { class: 'media' });
-      if (c.image) media.appendChild(el('img', { src: c.image, alt: t('c.alt') + name, loading: 'lazy' }));
-      else media.textContent = t('c.img');
       return el('article', { class: 'card' }, [
-        media,
+        media(c.image, t('c.alt') + name, c.illustration, t('c.img')),
         el('h3', { text: name }),
         L(c.issuer) ? el('p', { text: L(c.issuer) }) : todo(t('c.issuer')),
         L(c.date) ? el('span', { class: 'meta', text: L(c.date) }) : todo(t('c.date')),
@@ -162,7 +198,8 @@
     // Achievements
     stagger(fill('#achievementsGrid', (D.achievements || []).map(function (a) {
       return el('article', { class: 'card ach' }, [
-        el('span', { class: 'meta', text: (L(a.year) || t('a.year')) + ' · ' + a.organizer }),
+        a.photos && a.photos.length ? media(a.photos[0], t('a.photoAlt') + L(a.name), a.illustration, '') : null,
+        el('span',{ class: 'meta', text: (L(a.year) || t('a.year')) + ' · ' + a.organizer }),
         el('h3', { text: L(a.name) }),
         el('p', { text: L(a.description) }),
         L(a.activity) ? el('p', { text: t('a.project') + L(a.activity) }) : null,
@@ -170,7 +207,9 @@
       ]);
     })));
     fill('#associations', [chips(D.associations)]);
-    fill('#interests', [chips(D.interests)]);
+    stagger(fill('#interests', (D.interests || []).map(function (i) {
+      return el('div', { class: 'interest' }, [el('span', { class: 'interest-icon' }, [iconSvg(i.icon)]), el('span', { text: L(i.label) })]);
+    })));
 
     watch(document, instant);
   }
