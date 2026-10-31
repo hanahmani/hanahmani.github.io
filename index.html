@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hana Hmani — Engineering Student | Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Hana Hmani, GLSI Licence graduate and engineering student at the International Institute of Technology (IIT), Sfax. Full Stack Developer.">
+  <meta property="og:title" content="Hana Hmani — Engineering Student | Full Stack Developer">
+  <meta property="og:description" content="Projects, experience, skills and certifications of Hana Hmani.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hana-hmani.jpg">
+  <meta name="theme-color" content="#80644F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2380644F'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia' font-size='28' fill='%23FAF9F6'%3EHH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; var l = localStorage.getItem('lang'); if (l) document.documentElement.lang = l; } catch (e) {}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo serif" aria-label="Hana Hmani — home">HH</a>
+    <nav id="menu" class="nav-links" aria-label="Sections">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
+      <a href="#achievements" data-i18n="nav.achievements">Achievements</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" type="button" data-i18n="lang.other" data-i18n-aria="aria.lang" aria-label="Passer le site en français">FR</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" data-i18n-aria="aria.theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <a class="btn primary hide-sm" href="assets/CV-Hana-Hmani.pdf" download data-i18n="nav.cv">Download CV</a>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="home" class="hero tint">
+  <div class="hero-deco" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap grid-2">
+    <div class="stack hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio · Sfax, Tunisia</p>
+      <h1 class="serif hero-title"><span>Hana</span> <span>Hmani</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Engineering Student | Full Stack Developer</p>
+      <p class="lead" data-i18n="hero.lead">Licence graduate in Software Engineering and Information Systems, currently pursuing my Engineering Degree at the International Institute of Technology (IIT). Passionate about software development, innovative technologies and building impactful digital solutions.</p>
+      <div class="row">
+        <a class="btn primary" href="#projects" data-i18n="hero.explore">Explore My Work</a>
+        <a class="btn" href="assets/CV-Hana-Hmani.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          <span data-i18n="hero.cv">Download My CV</span></a>
+        <a class="btn" href="#contact" data-i18n="hero.contact">Contact Me</a>
+      </div>
+      <div class="row socials">
+        <a class="icon-btn" href="https://github.com/hanahmani" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/hana-hmani-996b41337/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a class="icon-btn" href="mailto:hanahmani3@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+      </div>
+    </div>
+    <div class="portrait">
+      <span class="orb orb-1" aria-hidden="true"></span><span class="orb orb-2" aria-hidden="true"></span>
+      <div class="portrait-frame" aria-hidden="true"></div>
+      <img src="assets/hana-hmani.jpg" alt="Portrait of Hana Hmani" data-i18n-alt="hero.alt" width="720" height="900" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="wrap grid-2 top">
+    <img class="about-photo reveal" src="assets/hana-hmani.jpg" alt="Hana Hmani" loading="lazy" width="720" height="720">
+    <div class="stack reveal">
+      <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
+      <h2 class="serif h2 reveal" data-i18n="about.title">From software engineering to engineering school</h2>
+      <p class="muted" data-i18n="about.p1">I'm Hana Hmani, a graduate in Software Engineering and Information Systems (GLSI) from the International Institute of Technology (IIT), where I am now pursuing my engineering degree. I'm particularly interested in full stack development, web application design and innovative software solutions.</p>
+      <p class="muted" data-i18n="about.p2">During my studies I worked on academic and practical projects, took part in hackathons and built applications with modern technologies. I'm driven by continuous learning, teamwork and creating solutions that meet real needs.</p>
+      <div class="stats">
+        <div class="stat"><strong class="serif">GLSI</strong><span data-i18n="stat.degree">Licence, 2026</span></div>
+        <div class="stat"><strong class="serif" id="statProjects">–</strong><span data-i18n="stat.projects">Projects shown</span></div>
+        <div class="stat"><strong class="serif" id="statTech">–</strong><span data-i18n="stat.tech">Technologies listed</span></div>
+        <div class="stat"><strong class="serif" id="statEvents">–</strong><span data-i18n="stat.events">Tech events</span></div>
+      </div>
+      <h3 class="h3" data-i18n="about.interests">Interests</h3>
+      <div class="chips" id="interests"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section tint">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.education">Education</h2>
+    <ol class="timeline" id="educationList"></ol>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.skills">Technical skills</h2>
+    <div class="grid-3" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section tint">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.experience">Professional experience</h2>
+    <div class="stack" id="experienceList"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.projects">Projects</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects by technology"></div>
+    <div class="grid-3" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section tint">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.certifications">Certifications</h2>
+    <div class="grid-3" id="certsGrid"></div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="section">
+  <div class="wrap">
+    <h2 class="serif h2 reveal" data-i18n="sec.achievements">Hackathons &amp; achievements</h2>
+    <div class="grid-3" id="achievementsGrid"></div>
+    <h3 class="h3" data-i18n="sec.associations">Student associations</h3>
+    <div class="chips" id="associations"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <div class="wrap grid-2 top">
+    <div class="stack reveal">
+      <h2 class="serif h2 light" data-i18n="contact.title">Let's work together</h2>
+      <p class="on-dark" data-i18n="contact.text">Open to internships, projects and collaborations.</p>
+      <a class="on-dark big" href="mailto:hanahmani3@gmail.com">hanahmani3@gmail.com</a>
+      <a class="on-dark" href="https://www.linkedin.com/in/hana-hmani-996b41337/" target="_blank" rel="noopener">LinkedIn — hana-hmani</a>
+      <a class="on-dark" href="https://github.com/hanahmani" target="_blank" rel="noopener">GitHub — hanahmani</a>
+      <div class="qr-box">
+        <div id="qr" aria-label="QR code to Hana Hmani's LinkedIn profile" role="img"></div>
+        <span data-i18n="contact.qr">Scan to open my LinkedIn</span>
+      </div>
+    </div>
+    <form id="contactForm" class="form reveal" novalidate>
+      <div class="form-head">
+        <span class="form-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+        <div><h3 class="serif" data-i18n="form.title">Send me a message</h3><p data-i18n="form.sub">I usually reply within a few days.</p></div>
+      </div>
+      <div class="fl"><input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="f-name" data-i18n="form.name">Full Name</label></div>
+      <div class="fl"><input id="f-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="f-email" data-i18n="form.email">Email</label></div>
+      <div class="fl"><input id="f-subject" name="subject" type="text" placeholder=" " required><label for="f-subject" data-i18n="form.subject">Subject</label></div>
+      <div class="fl"><textarea id="f-message" name="message" rows="5" placeholder=" " required></textarea><label for="f-message" data-i18n="form.message">Message</label></div>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn primary send" type="submit"><span class="send-label" data-i18n="form.send">Send message</span><span class="spinner" aria-hidden="true"></span><svg class="send-plane" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+      <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
+      <div class="form-success" id="formSuccess" hidden>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-15"/></svg>
+        <h3 class="serif" data-i18n="form.okTitle">Message sent!</h3>
+        <p data-i18n="form.okText">Thank you, I'll get back to you soon.</p>
+        <button type="button" class="btn" id="formAgain" data-i18n="form.again">Send another message</button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Hana Hmani · <span data-i18n="footer.role">Engineering Student / Full Stack Developer</span></span>
+    <span class="row">
+      <a href="https://www.linkedin.com/in/hana-hmani-996b41337/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/hanahmani" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:hanahmani3@gmail.com">hanahmani3@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+<a href="#top" class="to-top icon-btn" id="toTop" aria-label="Back to top" data-i18n-aria="top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script src="i18n.js" defer></script>
+<script src="data.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
