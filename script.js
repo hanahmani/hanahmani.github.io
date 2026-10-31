@@ -156,18 +156,6 @@
     }));
     stagger(edu);
 
-    // Complementary training (column hidden when the list is empty)
-    $('.edu-grid').classList.toggle('single', !(D.trainings || []).length);
-    stagger(fill('#trainingList', (D.trainings || []).map(function (tr) {
-      return el('article', { class: 'card training' }, [
-        el('div', { class: 'training-head' }, [el('span', { class: 'edu-icon' }, [iconSvg(tr.icon)]), el('h3', { text: L(tr.title) })]),
-        L(tr.issuer) ? el('p', { text: L(tr.issuer) }) : todo(t('t.issuer')),
-        L(tr.date) ? el('span', { class: 'meta', text: L(tr.date) }) : todo(t('t.date')),
-        L(tr.description) ? el('p', { text: L(tr.description) }) : null,
-        tr.skills && L(tr.skills).length ? chips(tr.skills, 'small') : null
-      ]);
-    })));
-
     // Hero highlights (computed from the data)
     var facts = [
       { icon: 'cap', text: 'IIT Sfax' },

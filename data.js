@@ -39,9 +39,6 @@ window.PORTFOLIO = {
     }
   ],
 
-  // Complementary training. Unknown fields stay "" → shown as "to complete".
-  trainings: [],
-
   // Skills: no proficiency levels on purpose. Logos come from assets/logos (see LOGOS in script.js).
   // To show a level, write an item as { name: "Java", level: "…" }.
   skills: [
