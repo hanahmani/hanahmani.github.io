@@ -325,6 +325,12 @@
     lastY = y;
   }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  toTop.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    nav.classList.remove('hide');
+    setTimeout(function () { $('.logo').focus({ preventScroll: true }); }, reduce ? 0 : 600);
+  });
   if ('IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
