@@ -485,3 +485,13 @@ svg { flex: 0 0 auto; }
 .qmark { top: 8px; left: 24px; font-size: 96px; }
 .about-quote blockquote { margin-top: 48px; }
 :root[lang="en"] .about-lead::first-letter { float: none; font: inherit; color: inherit; margin: 0; }
+
+/* About: simple info list (replaces the quote card) */
+.about-info { margin: 36px 0 24px; padding: 0; border-top: 1px solid var(--line-strong); }
+.about-info div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); transition: padding .35s var(--ease); }
+.about-info div:hover { padding-left: 8px; }
+.about-info dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--acc); }
+.about-info dd { margin: 0; font-size: 16px; font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.about-info a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.about-info a:hover { color: var(--acc); border-color: var(--acc); }
+.about-cv svg { width: 18px; height: 18px; }

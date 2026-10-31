@@ -23,6 +23,7 @@ window.I18N = {
     "about.p2": "Throughout my university studies, I have had the opportunity to work on various academic and practical projects, take part in hackathons and develop applications using several modern technologies.",
     "about.p3": "I am motivated by continuous learning, teamwork and creating solutions that meet real needs.",
     "stat.degree": "Licence, 2026", "stat.projects": "Projects", "stat.tech": "Technologies", "stat.events": "Tech events",
+    "info.based": "Based in", "info.basedVal": "Sfax, Tunisia", "info.edu": "Studies", "info.eduVal": "Engineering degree — IIT", "info.focus": "Focus", "info.focusVal": "Full stack development",
     "about.interests": "Interests", "about.soft": "Soft skills", "about.langs": "Languages",
 
     "sec.education": "My academic path", "sec.skills": "Technologies I work with", "sec.experience": "Professional experience",
@@ -73,6 +74,7 @@ window.I18N = {
     "about.p2": "Au cours de mon parcours universitaire, j'ai eu l'occasion de travailler sur différents projets académiques et pratiques, de participer à des hackathons et de développer des applications utilisant plusieurs technologies modernes.",
     "about.p3": "Je suis motivée par l'apprentissage continu, le travail en équipe et la création de solutions qui répondent à de vrais besoins.",
     "stat.degree": "Licence, 2026", "stat.projects": "Projets", "stat.tech": "Technologies", "stat.events": "Événements tech",
+    "info.based": "Basée à", "info.basedVal": "Sfax, Tunisie", "info.edu": "Études", "info.eduVal": "Cycle ingénieur — IIT", "info.focus": "Spécialité", "info.focusVal": "Développement Full Stack",
     "about.interests": "Centres d'intérêt", "about.soft": "Soft skills", "about.langs": "Langues",
 
     "sec.education": "Mon parcours académique", "sec.skills": "Les technologies que j'utilise", "sec.experience": "Expérience professionnelle",
