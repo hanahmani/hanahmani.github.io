@@ -159,14 +159,20 @@
 
   function renderContent(instant) {
     // Education
-    stagger(fill('#educationList', (D.education || []).map(function (e) {
+    var edu = fill('#educationList', (D.education || []).map(function (e) {
       var topics = L(e.topics) || [];
-      return rowItem(L(e.period), [
-        el('h3', { text: L(e.title) + (L(e.section) ? ' — ' + L(e.section) : '') }),
-        el('p', { text: L(e.school) }),
-        topics.length ? chips(topics, 'small') : null
-      ], el('span', { class: 'status ' + (e.done ? 'ok' : 'live'), text: L(e.status) }));
-    })), 100);
+      return el('li', { class: e.done ? 'done' : '' }, [
+        el('span', { class: 'edu-icon' }, [icon(e.icon)]),
+        el('div', { class: 'edu-card' }, [
+          el('div', { class: 'row' }, [el('span', { class: 'when', text: L(e.period) }), el('span', { class: 'chip ' + (e.done ? 'done' : 'live'), text: L(e.status) })]),
+          el('h3', { text: L(e.title) + (L(e.section) ? ' — ' + L(e.section) : '') }),
+          el('p', { text: L(e.school) }),
+          topics.length ? chips(topics) : null
+        ])
+      ]);
+    }));
+    stagger(edu, 140);
+    edu.classList.add('reveal-line');
 
     // Skills
     stagger(fill('#skillsGrid', (D.skills || []).map(function (g) {
@@ -181,29 +187,31 @@
     })), 70);
 
     // Experience
-    var nodes = [], others = [];
+    var side = el('div', { class: 'exp-side' });
+    var main = [];
     (D.experience || []).forEach(function (x) {
       if (x.main) {
-        nodes.push(el('article', { class: 'win exp-main reveal' }, [
-          winBar(x.company.toLowerCase() + ' / ' + slug(L(x.type)), L(x.period)),
-          el('div', { class: 'win-body' }, [
+        main.push(el('article', { class: 'exp-main reveal' }, [
+          el('div', {}, [
+            el('div', { class: 'exp-tag' }, [el('b', { text: x.company }), L(x.type) + ' · ' + L(x.period)]),
             el('h3', { text: L(x.title) }),
             el('p', { text: L(x.description) }),
-            el('ul', { class: 'checks' }, (L(x.features) || []).map(function (f) { return el('li', { text: f }); })),
             chips(x.tech, 'small'),
             x.github ? el('a', { class: 'code-link', href: x.github, target: '_blank', rel: 'noopener' }, [icon('github'), t('exp.code')]) : null
-          ])
+          ]),
+          el('ol', { class: 'exp-feats' }, (L(x.features) || []).map(function (f) { return el('li', { text: f }); }))
         ]));
       } else {
-        others.push(rowItem(L(x.period), [
-          el('h3', { text: x.company + ' — ' + L(x.type) }),
+        side.appendChild(el('article', { class: 'exp-card' }, [
+          el('span', { class: 'meta', text: L(x.period) + ' · ' + x.company }),
+          el('h3', { text: L(x.type) }),
           el('p', { text: L(x.description) }),
           chips(x.tech, 'small')
         ]));
       }
     });
-    var ol = stagger(el('ol', { class: 'rows' }, others), 100);
-    fill('#experienceList', nodes.concat([ol]));
+    stagger(side, 120);
+    fill('#experienceList', main.concat([side]));
 
     // Projects
     renderFilters();
