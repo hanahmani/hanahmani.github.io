@@ -40,7 +40,7 @@ window.PORTFOLIO = {
 
   // No proficiency levels on purpose. Logos: assets/logos (see LOGOS in script.js).
   skills: [
-    { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Angular", "Next.js", "Tailwind CSS"] },
+    { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Angular", "Next.js"] },
     { category: "Backend", items: ["Java", "Spring Boot", "C#", "ASP.NET Core", ".NET", "REST API"] },
     { category: { en: "Databases", fr: "Bases de données" }, items: ["MySQL", "SQL Server", "PL/SQL"] },
     { category: { en: "DevOps & Tools", fr: "DevOps & outils" }, items: ["Git", "GitHub", "Docker", "GitHub Actions", "Swagger / OpenAPI", "Postman"] },
@@ -91,36 +91,6 @@ window.PORTFOLIO = {
 
   // Empty fields are hidden. image + illustration: true → labelled "Illustration".
   projects: [
-    {
-      featured: true,
-      name: "ERP Huilerie Ben Chaaben",
-      kind: { en: "Full stack web application · 2026", fr: "Application web full stack · 2026" },
-      objective: { en: "Manage every activity of an olive oil mill in one web application, from olive pressing to invoicing, stock and HR.", fr: "Gérer toute l'activité d'une huilerie dans une seule application web, du pressage des olives à la facturation, au stock et aux RH." },
-      description: { en: "Management web application for an olive oil mill, with server-side roles and permissions, stock tracked by movements and lots, and full sales and purchasing cycles.", fr: "Application web de gestion d'une huilerie, avec rôles et permissions vérifiés côté serveur, stock suivi par mouvements et par lots, et cycles complets de vente et d'achat." },
-      features: {
-        en: ["JWT authentication, users, custom roles and permission matrix", "Stock by movements, lots and lot blocking, physical inventories", "Point-of-sale with printable tickets, cash journal and dashboard", "Purchases, supplier payments, VAT and discounts", "Customer olive pressing, production, yield and packaging", "Lot traceability and quality control", "Quotes, orders, deliveries, invoices and credit notes", "HR: employees, contracts, leave and absences", "Reports with CSV export, global search (Ctrl+K)"],
-        fr: ["Authentification JWT, utilisateurs, rôles personnalisés et matrice de permissions", "Stock par mouvements et par lots, blocage de lot, inventaires physiques", "Vente en caisse avec tickets imprimables, journal de caisse et tableau de bord", "Achats, paiements fournisseurs, TVA et remises", "Pressage client, production, rendement et conditionnement", "Traçabilité des lots et contrôle qualité", "Devis, commandes, livraisons, factures et avoirs", "RH : employés, contrats, congés et absences", "Rapports avec export CSV, recherche globale (Ctrl+K)"]
-      },
-      tech: ["React", "Vite", "Spring Boot", "Java", "MySQL", "JWT", "Docker"],
-      role: "",
-      github: "https://github.com/hanahmani/erp-huilerie", demo: "",
-      image: "assets/illustrations/erp.svg", illustration: true
-    },
-    {
-      featured: true,
-      name: { en: "RoboCare Website", fr: "Site web RoboCare" },
-      kind: { en: "Showcase website · 2026", fr: "Site vitrine · 2026" },
-      objective: { en: "Present RoboCare's precision-agriculture solutions (satellite imagery, IoT sensors and AI) in a fast, multilingual website.", fr: "Présenter les solutions d'agriculture de précision de RoboCare (imagerie satellite, capteurs IoT et IA) dans un site rapide et multilingue." },
-      description: { en: "Company website built with Next.js 15 and TypeScript: solutions, platform, technology, impact and contact pages, with animations and a typed content layer.", fr: "Site de l'entreprise développé avec Next.js 15 et TypeScript : pages solutions, plateforme, technologie, impact et contact, avec animations et contenus typés." },
-      features: {
-        en: ["French, English and Arabic with real right-to-left support", "Animated sections (reveal, stagger, count-up) respecting reduced motion", "Reusable UI components and a design system in Tailwind", "SEO: sitemap, robots.txt, Open Graph images", "Responsive from 375 px to 1440 px", "Docker setup for deployment"],
-        fr: ["Français, anglais et arabe avec un vrai support de droite à gauche", "Sections animées (apparition, cascade, compteurs) respectant la réduction des animations", "Composants UI réutilisables et design system Tailwind", "SEO : plan du site, robots.txt, images Open Graph", "Responsive de 375 px à 1440 px", "Configuration Docker pour le déploiement"]
-      },
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Docker"],
-      role: "",
-      github: "https://github.com/hanahmani/robocare-website", demo: "",
-      image: "assets/illustrations/website.svg", illustration: true
-    },
     {
       name: { en: "E-learning Platform", fr: "Plateforme e-learning" },
       kind: { en: "Internship project · Stup Soft · 2025", fr: "Projet de stage · Stup Soft · 2025" },

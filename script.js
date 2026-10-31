@@ -152,13 +152,6 @@
   }
 
   function renderContent(instant) {
-    // Marquee of technologies (duplicated for a seamless loop)
-    var names = [];
-    (D.skills || []).forEach(function (g) { if (!g.notTech) L(g.items).forEach(function (n) { if (LOGOS[n] && names.indexOf(n) < 0) names.push(n); }); });
-    var items = names.map(function (n) { return el('span', { class: 'marquee-item' }, [logoImg(n, '30'), n]); });
-    var track = fill('#marquee', items.concat(items.map(function (n) { var c = n.cloneNode(true); c.setAttribute('aria-hidden', 'true'); return c; })));
-    track.setAttribute('aria-label', names.join(', '));
-
     // Education
     var edu = fill('#educationList', (D.education || []).map(function (e) {
       var topics = L(e.topics) || [];
@@ -290,7 +283,6 @@
     document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
     document.querySelectorAll('[data-i18n-aria]').forEach(function (n) { n.setAttribute('aria-label', t(n.getAttribute('data-i18n-aria'))); });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (n) { n.setAttribute('alt', t(n.getAttribute('data-i18n-alt'))); });
-    $('#ringText').textContent = t('hero.badge');
     var burger = $('#burger');
     burger.setAttribute('aria-label', t(burger.getAttribute('aria-expanded') === 'true' ? 'aria.menuClose' : 'aria.menuOpen'));
   }
@@ -412,7 +404,6 @@
     var vis = $('.hero-visual'), hero = $('#home');
     hero.addEventListener('pointermove', function (e) {
       var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
-      document.querySelectorAll('.float-chip').forEach(function (c, i) { c.style.translate = (x * (14 + i * 8)) + 'px ' + (y * (14 + i * 8)) + 'px'; });
       vis.style.translate = (x * -10) + 'px ' + (y * -10) + 'px';
     });
   }
