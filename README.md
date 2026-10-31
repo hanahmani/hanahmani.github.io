@@ -57,8 +57,8 @@ git remote add origin https://github.com/hanahmani/hanahmani.github.io.git
 git push -u origin main
 ```
 
-3. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, branch `main`, folder `/ (root)`, Save.
-4. After ~1 minute the site is live. Each new push to `main` redeploys automatically.
+3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+4. The workflow `.github/workflows/deploy.yml` publishes the site. Every push to `main` redeploys it automatically (see the **Actions** tab).
 
 ## Links
 
