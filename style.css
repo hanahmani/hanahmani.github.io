@@ -368,3 +368,30 @@ a.on-dark:hover { color: #FFFFFF; }
 .ach .media { margin-top: -24px; border-radius: 0; }
 
 @media (max-width: 900px) { .about { grid-template-columns: minmax(0, 1fr); gap: 40px; } }
+
+/* ---------- Education v2 ---------- */
+.edu-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.edu-h { margin: 0 0 22px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); font-weight: 600; }
+.timeline li { padding-bottom: 22px; }
+.timeline li::before { top: 30px; }
+.edu-card { display: flex; gap: 18px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; transition: transform .3s, box-shadow .3s, border-color .3s; }
+.edu-card:hover { transform: translateX(4px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--acc) 55%, var(--line)); }
+.edu-body { min-width: 0; flex: 1; }
+.edu-body h3 { margin: 8px 0 4px; font-size: 20px; }
+.edu-body p { margin: 0 0 12px; }
+.edu-body p:last-child { margin-bottom: 0; }
+.edu-icon { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: var(--bg2); color: var(--acc); display: grid; place-items: center; }
+.edu-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.timeline li:not(.done) .edu-icon { background: var(--acc); color: var(--acc-ink); }
+.training-head { display: flex; align-items: center; gap: 14px; }
+.training-head h3 { font-size: 18px; }
+
+/* ---------- Hero highlights ---------- */
+.facts { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.facts li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-size: 14px; font-weight: 500; }
+.facts svg { width: 17px; height: 17px; fill: none; stroke: var(--acc); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hero-copy > :nth-child(7) { animation-delay: .78s; }
+
+@media (max-width: 900px) { .edu-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+@media (max-width: 560px) { .edu-card { flex-direction: column; gap: 12px; padding: 18px; } .timeline li { padding-left: 26px; } }
+@media (max-width: 900px) { .hero-deco span:nth-child(3) { display: none; } }

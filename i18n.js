@@ -39,7 +39,7 @@ window.I18N = {
     "p.repoTodo": "GitHub link to confirm", "p.demo": "Live demo", "p.role": "My role: ", "p.techTodo": "Technologies to confirm",
     "c.img": "Certificate image to add", "c.alt": "Certificate: ", "c.issuer": "Issuer: to complete", "c.date": "Date: to complete",
     "c.verify": "Verify certificate", "c.more": "More certifications coming soon.",
-    "a.year": "Year to confirm", "illus": "Illustration", "p.objective": "Objective", "p.features": "Key features", "p.roleTodo": "My role: to confirm", "a.photoAlt": "Illustration for ", "a.project": "Project: ", "a.result": "Result: "
+    "a.year": "Year to confirm", "edu.degrees": "Degrees", "edu.training": "Complementary training", "t.issuer": "Organisation: to complete", "t.date": "Date: to complete", "fact.internships": "internships", "fact.events": "tech events", "aria.facts": "Highlights", "illus": "Illustration", "p.objective": "Objective", "p.features": "Key features", "p.roleTodo": "My role: to confirm", "a.photoAlt": "Illustration for ", "a.project": "Project: ", "a.result": "Result: "
   },
   fr: {
     "meta.title": "Hana Hmani — Élève ingénieure | Développeuse Full Stack",
@@ -80,6 +80,6 @@ window.I18N = {
     "p.repoTodo": "Lien GitHub à confirmer", "p.demo": "Démo en ligne", "p.role": "Mon rôle : ", "p.techTodo": "Technologies à confirmer",
     "c.img": "Image du certificat à ajouter", "c.alt": "Certificat : ", "c.issuer": "Organisme : à compléter", "c.date": "Date : à compléter",
     "c.verify": "Vérifier le certificat", "c.more": "D'autres certifications arrivent bientôt.",
-    "a.year": "Année à confirmer", "illus": "Illustration", "p.objective": "Objectif", "p.features": "Fonctionnalités principales", "p.roleTodo": "Mon rôle : à confirmer", "a.photoAlt": "Illustration pour ", "a.project": "Projet : ", "a.result": "Résultat : "
+    "a.year": "Année à confirmer", "edu.degrees": "Diplômes", "edu.training": "Formations complémentaires", "t.issuer": "Organisme : à compléter", "t.date": "Date : à compléter", "fact.internships": "stages", "fact.events": "événements tech", "aria.facts": "Points clés", "illus": "Illustration", "p.objective": "Objectif", "p.features": "Fonctionnalités principales", "p.roleTodo": "Mon rôle : à confirmer", "a.photoAlt": "Illustration pour ", "a.project": "Projet : ", "a.result": "Résultat : "
   }
 };

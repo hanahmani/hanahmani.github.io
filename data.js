@@ -10,6 +10,7 @@ window.PORTFOLIO = {
     {
       period: { en: "2026 – Present", fr: "2026 – Aujourd'hui" },
       status: { en: "In progress", fr: "En cours" },
+      icon: "cap",
       title: { en: "Engineering Degree (Cycle Ingénieur)", fr: "Cycle ingénieur" },
       school: { en: "International Institute of Technology (IIT), Sfax", fr: "Institut International de Technologie (IIT), Sfax" },
       topics: []
@@ -18,12 +19,35 @@ window.PORTFOLIO = {
       period: "2023 – 2026",
       status: { en: "Obtained · 2026", fr: "Obtenue · 2026" },
       done: true,
+      icon: "cap",
       title: { en: "Licence in Software Engineering and Information Systems (GLSI)", fr: "Licence en Génie Logiciel et Systèmes d'Information (GLSI)" },
       school: { en: "International Institute of Technology (IIT), Sfax", fr: "Institut International de Technologie (IIT), Sfax" },
       topics: {
         en: ["Programming", "Software engineering", "Web development", "Databases", "Software design & architecture", "Information systems", "IT project management"],
         fr: ["Programmation", "Génie logiciel", "Développement web", "Bases de données", "Conception et architecture logicielle", "Systèmes d'information", "Gestion de projets informatiques"]
       }
+    },
+    {
+      period: "2023",
+      status: { en: "Obtained · 2023", fr: "Obtenu · 2023" },
+      done: true,
+      icon: "school",
+      title: { en: "Baccalaureate", fr: "Baccalauréat" },
+      section: "",   // e.g. { en: "Computer Science", fr: "Sciences de l'informatique" } once confirmed
+      school: "Lycée Khalij, Sfax",
+      topics: []
+    }
+  ],
+
+  // Complementary training. Unknown fields stay "" → shown as "to complete".
+  trainings: [
+    {
+      icon: "rocket",
+      title: { en: "Entrepreneurship training", fr: "Formation en entrepreneuriat" },
+      issuer: "",
+      date: "",
+      description: "",
+      skills: { en: ["Entrepreneurship"], fr: ["Entrepreneuriat"] }
     }
   ],
 

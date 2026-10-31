@@ -62,7 +62,11 @@
     cpu: '<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
     bulb: '<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/>',
     puzzle: '<path d="M19.4 14.4a2.5 2.5 0 1 0 0-4.8V6a1 1 0 0 0-1-1h-3.6a2.5 2.5 0 1 0-4.8 0H6a1 1 0 0 0-1 1v3.6a2.5 2.5 0 1 1 0 4.8V18a1 1 0 0 0 1 1h3.6a2.5 2.5 0 1 1 4.8 0H18a1 1 0 0 0 1-1Z"/>',
-    horse: '<path d="M6 21l2-6c-2-1-3-3-3-5l4-6 2 2 3-3 1 4c2 1 4 3 4 6v8"/><path d="M14 9l-3 2"/><circle cx="10.5" cy="7.5" r=".6" fill="currentColor"/>'
+    cap: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/>',
+    school: '<path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/><circle cx="12" cy="11" r="1.6"/>',
+    rocket: '<path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1Z"/><path d="m12 15-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2Z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/>',
+    briefcase: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+    horse:'<path d="M6 21l2-6c-2-1-3-3-3-5l4-6 2 2 3-3 1 4c2 1 4 3 4 6v8"/><path d="M14 9l-3 2"/><circle cx="10.5" cy="7.5" r=".6" fill="currentColor"/>'
   };
   function iconSvg(name) {
     var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -139,13 +143,38 @@
     var edu = fill('#educationList', (D.education || []).map(function (e) {
       var topics = L(e.topics) || [];
       return el('li', { class: e.done ? 'done' : '' }, [
-        el('div', { class: 'row' }, [el('span', { class: 'when', text: L(e.period) }), el('span', { class: 'chip' + (e.done ? ' done' : ''), text: L(e.status) })]),
-        el('h3', { text: L(e.title) }),
-        el('p', { text: L(e.school) }),
-        topics.length ? chips(topics) : null
+        el('div', { class: 'edu-card' }, [
+          el('span', { class: 'edu-icon' }, [iconSvg(e.icon)]),
+          el('div', { class: 'edu-body' }, [
+            el('div', { class: 'row' }, [el('span', { class: 'when', text: L(e.period) }), el('span', { class: 'chip' + (e.done ? ' done' : ''), text: L(e.status) })]),
+            el('h3', { text: L(e.title) + (L(e.section) ? ' — ' + L(e.section) : '') }),
+            el('p', { text: L(e.school) }),
+            topics.length ? chips(topics) : null
+          ])
+        ])
       ]);
     }));
     stagger(edu);
+
+    // Complementary training
+    stagger(fill('#trainingList', (D.trainings || []).map(function (tr) {
+      return el('article', { class: 'card training' }, [
+        el('div', { class: 'training-head' }, [el('span', { class: 'edu-icon' }, [iconSvg(tr.icon)]), el('h3', { text: L(tr.title) })]),
+        L(tr.issuer) ? el('p', { text: L(tr.issuer) }) : todo(t('t.issuer')),
+        L(tr.date) ? el('span', { class: 'meta', text: L(tr.date) }) : todo(t('t.date')),
+        L(tr.description) ? el('p', { text: L(tr.description) }) : null,
+        tr.skills && L(tr.skills).length ? chips(tr.skills, 'small') : null
+      ]);
+    })));
+
+    // Hero highlights (computed from the data)
+    var facts = [
+      { icon: 'cap', text: 'IIT Sfax' },
+      { icon: 'briefcase', text: (D.experience || []).length + ' ' + t('fact.internships') },
+      { icon: 'rocket', text: (D.achievements || []).length + ' ' + t('fact.events') }
+    ];
+    var fl = fill('#heroFacts', facts.map(function (f) { return el('li', {}, [iconSvg(f.icon), el('span', { text: f.text })]); }));
+    fl.setAttribute('aria-label', t('aria.facts'));
 
     // Skills
     stagger(fill('#skillsGrid', (D.skills || []).map(function (g) {
