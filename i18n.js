@@ -10,7 +10,7 @@ window.I18N = {
     "aria.lang": "Passer le site en français", "lang.other": "FR",
 
     "hero.eyebrow": "Hi, I'm",
-    "hero.r1": "Full Stack Developer", "hero.r2": "Engineering Student", "hero.r3": "Spring Boot · React · Angular",
+    "hero.title": "Engineering Student | Full Stack Developer", "hero.r1": "Full Stack Developer", "hero.r2": "Engineering Student", "hero.r3": "Spring Boot · React · Angular",
     "hero.lead": "Licence graduate in Software Engineering and Information Systems, currently pursuing my Engineering Degree at the International Institute of Technology (IIT). Passionate about software development, innovative technologies and building impactful digital solutions. I enjoy transforming ideas into useful, scalable and user-friendly applications.",
     "hero.explore": "Explore My Work", "hero.cv": "Download My CV", "hero.contact": "Contact Me",
     "hero.alt": "Portrait of Hana Hmani", "hero.badge": "FULL STACK DEVELOPER • ENGINEERING STUDENT • IIT SFAX • ",
@@ -60,7 +60,7 @@ window.I18N = {
     "aria.lang": "Switch the site to English", "lang.other": "EN",
 
     "hero.eyebrow": "Bonjour, je suis",
-    "hero.r1": "Développeuse Full Stack", "hero.r2": "Élève ingénieure", "hero.r3": "Spring Boot · React · Angular",
+    "hero.title": "Élève ingénieure | Développeuse Full Stack", "hero.r1": "Développeuse Full Stack", "hero.r2": "Élève ingénieure", "hero.r3": "Spring Boot · React · Angular",
     "hero.lead": "Diplômée d'une licence en Génie Logiciel et Systèmes d'Information, je poursuis actuellement mon cycle ingénieur à l'Institut International de Technologie (IIT). Passionnée par le développement logiciel, les technologies innovantes et la création de solutions numériques utiles. J'aime transformer des idées en applications utiles, évolutives et faciles à utiliser.",
     "hero.explore": "Voir mes projets", "hero.cv": "Télécharger mon CV", "hero.contact": "Me contacter",
     "hero.alt": "Portrait de Hana Hmani", "hero.badge": "DÉVELOPPEUSE FULL STACK • ÉLÈVE INGÉNIEURE • IIT SFAX • ",

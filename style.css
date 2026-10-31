@@ -424,3 +424,6 @@ svg { flex: 0 0 auto; }
   .hero-title .word { transform: none; }
 }
 .qr-box.ok { display: flex; }
+.roles { height: auto; overflow: visible; }
+.roles-track span { height: auto; line-height: 1.4; }
+.roles-track span { align-items: flex-start; } .roles-track span::before { margin-top: .7em; flex: 0 0 28px; }

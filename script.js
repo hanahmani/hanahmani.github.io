@@ -260,20 +260,9 @@
     bindTilt();
   }
 
-  /* ---------- Rotating roles in hero ---------- */
-  var roleTimer, roleIndex = 0;
+  /* ---------- Title under the name ---------- */
   function renderRoles() {
-    var track = $('#roles');
-    var roles = [t('hero.r1'), t('hero.r2'), t('hero.r3')];
-    fill('#roles', roles.concat([roles[0]]).map(function (r, i) { return el('span', i ? { 'aria-hidden': 'true', text: r } : { text: r }); }));
-    clearInterval(roleTimer); roleIndex = 0; track.style.transition = 'none'; track.style.transform = 'translateY(0)';
-    if (reduce) return;
-    roleTimer = setInterval(function () {
-      roleIndex++;
-      track.style.transition = '';
-      track.style.transform = 'translateY(' + (-1.5 * roleIndex) + 'em)';
-      if (roleIndex === roles.length) setTimeout(function () { track.style.transition = 'none'; track.style.transform = 'translateY(0)'; roleIndex = 0; }, 750);
-    }, 2600);
+    fill('#roles', [el('span', { text: t('hero.title') })]);
   }
 
   /* ---------- Static texts ---------- */
