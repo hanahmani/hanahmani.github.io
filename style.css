@@ -448,3 +448,72 @@ svg { flex: 0 0 auto; }
   .section.old-style { padding: 72px 0; }
   .old-style .sec-head { margin-bottom: 40px; }
 }
+
+/* =========================================================
+   Fine animations (home page untouched)
+   ========================================================= */
+/* section titles: label slides in, title rises from a mask, a short line draws */
+.js .sh-label, .js .sec-head .eyebrow, .js .sec-head .sec-num { opacity: 0; transform: translateX(-16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.in .sh-label, .in .sec-head .eyebrow, .sec-head.in .eyebrow, .sec-head.in .sec-num, .sh.in .sh-label { opacity: 1; transform: none; }
+.js .sh-title, .js .sec-head .h2 { clip-path: inset(0 0 100% 0); transform: translateY(18px); transition: clip-path 1s var(--ease) .12s, transform 1s var(--ease) .12s; }
+.in .sh-title, .sh.in .sh-title, .sec-head.in .h2 { clip-path: inset(-10% 0 -20% 0); transform: none; }
+.sh::after { content: ""; display: block; width: 52px; height: 2px; margin-top: 20px; border-radius: 2px; background: var(--acc); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease) .45s; }
+.contact .sh::after { background: #B89C82; }
+.sh.in::after, .in .sh::after { transform: scaleX(1); }
+
+/* staggered children (skills, tags, checklists, info lists) */
+.js .reveal .stg > *, .js .reveal.stg > * { opacity: 0; transform: translateY(10px) scale(.97); transition: opacity .5s var(--ease) calc(var(--i, 0) * 45ms + 160ms), transform .55s var(--ease) calc(var(--i, 0) * 45ms + 160ms), border-color .2s, color .2s, background .2s; }
+.js .reveal.in .stg > *, .js .reveal.in.stg > * { opacity: 1; transform: none; }
+.js .reveal.in .skill:hover { transform: translateY(-2px); }
+
+/* rows: accent bar grows on hover */
+.row-item { position: relative; }
+.row-item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--acc); transform: scaleY(0); transform-origin: top; transition: transform .45s var(--ease); }
+.row-item:hover::before { transform: scaleY(1); }
+.row-item h3 { transition: color .25s; }
+.row-item:hover h3 { color: var(--acc); }
+
+/* window cards: traffic lights wake up, bar tints */
+.win-bar i { transition: background .3s, transform .3s var(--ease); }
+.win:hover .win-bar i { transform: scale(1.15); }
+.win:hover .win-bar i:nth-child(2) { background: #D9B48A; }
+.win:hover .win-bar i:nth-child(3) { background: #A8B58A; }
+.win:hover .win-bar { color: var(--ink); }
+.win-body h3 { transition: color .25s; }
+.win:hover .win-body h3 { color: var(--acc); }
+
+/* key figures lift */
+.kv { transition: background .3s; }
+.kv .v { display: inline-block; transition: transform .45s var(--ease); }
+.kv:hover { background: var(--bg2); }
+.kv:hover .v { transform: translateY(-4px); }
+
+/* tags & skills: logo nudge */
+.skill img { transition: transform .45s var(--ease); }
+.skill:hover img { transform: rotate(-10deg) scale(1.15); }
+.tag svg { transition: transform .4s var(--ease); }
+.tag:hover svg { transform: rotate(-12deg) scale(1.1); }
+
+/* links: underline sweeps in */
+.p-link, .contact-list a, .about-info a, .footer a { background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .4s var(--ease), color .25s; }
+.about-info a { border-bottom-color: transparent; background-size: 100% 1px; background-image: linear-gradient(var(--line-strong), var(--line-strong)); }
+.p-link:hover, .contact-list a:hover, .footer a:hover { background-size: 100% 1px; }
+.p-link svg { transition: transform .35s var(--ease); }
+.p-link:hover svg { transform: translate(2px, -2px); }
+
+/* filters: active tab pops */
+.filter[aria-pressed="true"] { animation: tabPop .35s var(--ease); }
+@keyframes tabPop { 0% { transform: scale(.92); } 100% { transform: none; } }
+
+/* contact list rows slide */
+.contact-list div { transition: padding .35s var(--ease), background .3s; }
+.contact-list div:hover { padding-left: 8px; }
+
+/* back-to-top arrow nudges */
+.to-top svg { transition: transform .35s var(--ease); }
+.to-top:hover svg { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .sh-label, .js .sec-head .eyebrow, .js .sec-head .sec-num, .js .sh-title, .js .sec-head .h2, .js .reveal .stg > *, .js .reveal.stg > * { opacity: 1; transform: none; clip-path: none; }
+  .sh::after { transform: scaleX(1); }
+}

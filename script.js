@@ -90,7 +90,15 @@
   var rev = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
     entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); rev.unobserve(en.target); } });
   }, { threshold: .1, rootMargin: '0px 0px -40px 0px' }) : null;
+  // Children of these containers appear one after another (see .stg in style.css)
+  function markStagger() {
+    document.querySelectorAll('.skills, .tags, .checks, .exp-feats, .chips, .about-info, .contact-list').forEach(function (c) {
+      c.classList.add('stg');
+      Array.prototype.forEach.call(c.children, function (x, i) { x.style.setProperty('--i', Math.min(i, 14)); });
+    });
+  }
   function watch(instant) {
+    markStagger();
     document.querySelectorAll('.reveal:not(.in)').forEach(function (n) {
       if (!rev || instant) n.classList.add('in'); else rev.observe(n);
     });
